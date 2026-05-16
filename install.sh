@@ -4,7 +4,7 @@
 #  Работает на любом сервере включая Cloud.ru (российские IP)
 #
 #  Использование:
-#    curl -fsSL https://install.afonin-lisa.ru/claude | bash
+#    curl -fsSL https://raw.githubusercontent.com/ankor1403/free-claude-public/main/install.sh | bash
 #    ИЛИ
 #    bash install.sh
 # =============================================================================
