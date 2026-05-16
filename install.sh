@@ -4,7 +4,7 @@
 #  Работает на любом сервере включая Cloud.ru (российские IP)
 #
 #  Использование:
-#    curl -fsSL https://raw.githubusercontent.com/ankor1403/free-claude-public/main/install.sh | bash
+#    curl -fsSL https://install.afonin-lisa.ru/claude | bash
 #    ИЛИ
 #    bash install.sh
 # =============================================================================
@@ -94,11 +94,8 @@ except: sys.exit(1)
 }
 
 do_login() {
-    # Logout если уже залогинен (чтобы получить свежий токен)
-    if "$KIRO_CMD" login --license free --use-device-flow 2>&1 | grep -q "Already logged in"; then
-        info "Уже залогинен — обновляю токен (logout + login)..."
-        "$KIRO_CMD" logout 2>/dev/null || true
-    fi
+    # Сначала logout чтобы сбросить любое старое состояние
+    "$KIRO_CMD" logout 2>/dev/null || true
 
     echo ""
     echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════════╗${NC}"
@@ -481,6 +478,6 @@ echo -e "${BOLD}${GREEN}║${NC}  Токен: ${YELLOW}обновляется а
 echo -e "${BOLD}${GREEN}║${NC}  Если сломалась авторизация:                           ${BOLD}${GREEN}║${NC}"
 echo -e "${BOLD}${GREEN}║${NC}    ${CYAN}~/kiro-reauth.sh${NC}                                   ${BOLD}${GREEN}║${NC}"
 echo -e "${BOLD}${GREEN}║${NC}  Лог прокси:                                           ${BOLD}${GREEN}║${NC}"
-echo -e "${BOLD}${GREEN}║${NC}    ${CYAN}tail -f /tmp/kiro_proxy.log${NC}                        ${BOLD}${GREEN}║${NC}"
+echo -e "${BOLD}${GREEN}║${NC}    ${CYAN}tail -f $LOG_FILE${NC}                          ${BOLD}${GREEN}║${NC}"
 echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
 echo ""
