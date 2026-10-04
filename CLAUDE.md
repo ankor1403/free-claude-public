@@ -13,7 +13,18 @@ README.md            Russian-language user docs: one-line install, usage, requir
 install.sh           The installer (bash, ~470 lines). The only shipped artifact.
 alibi-game/          Unrelated: a journal for a live detective quiz game ("The Alibi"),
                      kept in Russian. Do not treat as project code.
+CLAUDE.md            This file.
 ```
+
+### alibi-game/journal.md
+
+A single Markdown log, appended to during a game session. Sections, in order:
+the memo (`## 0. Памятка`), one `### Тур N — NAME` block per round (verbatim
+transcriptions of every document, the team's submitted answers, the official
+answers once known, and analysis), then `## Подтверждённые ответы`, a table of
+confirmed answers across all rounds. When adding a round, keep transcriptions
+verbatim and separate from analysis, and fill the "Верный ответ" column only
+from the organizers' answers, never from guesses. Commit after every update.
 
 ## install.sh structure
 
